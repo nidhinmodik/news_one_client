@@ -1,13 +1,10 @@
-const production = 'production'
-const development = 'development'
+const mode = import.meta.env.VITE_MODE;
+let base_url = '';
 
-const mode = development
-let base_url = ''
-
-if (mode === production) {
-    base_url = ""
+if (mode === 'production') {
+    base_url = import.meta.env.VITE_PRODUCTION_API_URL;
 } else {
-    base_url = 'https://news-one-by-one-backend.onrender.com'
+    base_url = import.meta.env.VITE_LOCAL_API_URL;
 }
 
-export { base_url }
+export { base_url };
